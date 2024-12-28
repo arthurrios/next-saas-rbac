@@ -6,8 +6,6 @@ import { signInWithGithub } from '@/http/sign-in-with-github'
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
 
-  console.log('searchParams', searchParams)
-
   const code = searchParams.get('code')
 
   if (!code) {
