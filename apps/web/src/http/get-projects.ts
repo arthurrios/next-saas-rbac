@@ -9,7 +9,7 @@ interface GetProjectsResponse {
     ownerId: string
     organizationId: string
     description: string
-    date: string
+    createdAt: string
     owner: {
       name: string | null
       id: string
