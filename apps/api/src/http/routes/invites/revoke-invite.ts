@@ -1,4 +1,3 @@
-import { roleSchema } from '@saas/auth'
 import type { FastifyInstance } from 'fastify'
 import type { ZodTypeProvider } from 'fastify-type-provider-zod'
 import z from 'zod'
@@ -13,7 +12,7 @@ export async function revokeInvite(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
     .register(auth)
-    .post(
+    .delete(
       '/organizations/:slug/invites/:inviteId',
       {
         schema: {
@@ -24,10 +23,6 @@ export async function revokeInvite(app: FastifyInstance) {
               bearerAuth: [],
             },
           ],
-          body: z.object({
-            email: z.string().email(),
-            role: roleSchema,
-          }),
           params: z.object({
             slug: z.string(),
             inviteId: z.string().uuid(),
