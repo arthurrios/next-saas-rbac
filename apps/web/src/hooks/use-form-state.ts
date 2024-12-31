@@ -21,16 +21,18 @@ export function useFormState(
     const form = event.currentTarget
     const data = new FormData(form)
 
+    event.preventDefault()
+
     startTransition(async () => {
       const state = await action(data)
 
       if (state.success && onSuccess) {
         await onSuccess()
+        form.reset()
       }
 
       setFormState(state)
     })
-    form.reset()
   }
 
   return [formState, handleSubmit, isPending] as const

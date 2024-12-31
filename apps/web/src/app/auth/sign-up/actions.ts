@@ -1,7 +1,6 @@
 'use server'
 
 import { HTTPError } from 'ky'
-import { redirect } from 'next/navigation'
 import { z } from 'zod'
 
 import { signUp } from '@/http/sign-up'
@@ -23,6 +22,8 @@ const signUpSchema = z
     message: 'Passwords do not match',
     path: ['password_confirmation'],
   })
+
+export type SignUpData = z.infer<typeof signUpSchema>
 
 export async function signUpAction(data: FormData) {
   const result = signUpSchema.safeParse(Object.fromEntries(data))
@@ -57,5 +58,9 @@ export async function signUpAction(data: FormData) {
     }
   }
 
-  redirect('/auth/sign-in')
+  return {
+    success: true,
+    message: 'Successfully signed up.',
+    errors: null,
+  }
 }
