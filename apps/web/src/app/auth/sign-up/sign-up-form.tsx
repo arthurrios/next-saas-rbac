@@ -3,7 +3,7 @@
 import { AlertTriangle, Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { redirect, useSearchParams } from 'next/navigation'
 
 import githubIcon from '@/assets/github-icon.svg'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -18,8 +18,16 @@ import { signUpAction } from './actions'
 export function SignUpForm() {
   const searchParams = useSearchParams()
 
-  const [{ message, errors, success }, handleSubmit, isPending] =
-    useFormState(signUpAction)
+  const [{ message, errors, success }, handleSubmit, isPending] = useFormState(
+    signUpAction,
+    (data: FormData) => {
+      const email = searchParams.get('email')
+        ? searchParams.get('email')
+        : data.get('email')
+
+      redirect(`/auth/sign-in?email=${email}`)
+    },
+  )
 
   return (
     <div className="space-y-4">
