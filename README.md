@@ -2,6 +2,17 @@
 
 This project contains all the necessary boilerplate to setup a multi-tenant SaaS with Next.js including authentication and RBAC authorization.
 
+## Techs
+
+- Turborepo
+- CASL (Isomorphic Authorization
+JavaScript library)
+- Fastify
+- Prisma
+- Next.js
+- Shadcn/ui
+- Zod
+
 ## Features
 
 ### Authentication
@@ -80,3 +91,25 @@ Roles & permissions.
 - Only owners may transfer organization ownership;
 - Only administrators and project authors may update/delete the project;
 - Members can leave their own organization;
+
+## Setup project
+
+1. Setup the environment variables according to the `.env.example`
+
+2. Run desired command to install dependencies:
+
+```
+pnpm i
+```
+
+2. Run docker compose:
+`docker compose up -d`
+
+3. Setup prisma and seed:
+
+```
+npx prisma generate
+npx prisma db seed
+```
+
+4. Run project with `pnpm run dev` in root directory.
