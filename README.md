@@ -113,3 +113,8 @@ npx prisma db seed
 ```
 
 4. Run project with `pnpm run dev` in root directory.
+
+## Deploy
+
+[Backend](https://next-saas-rbac-u5fz.onrender.com)
+[Frontend](https://next-saas-rbac-delta.vercel.app/)
