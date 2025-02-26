@@ -2,6 +2,11 @@
 
 This project contains all the necessary boilerplate to setup a multi-tenant SaaS with Next.js including authentication and RBAC authorization.
 
+## Deploy
+
+[Backend](https://next-saas-rbac-u5fz.onrender.com)
+[Frontend](https://next-saas-rbac-delta.vercel.app/)
+
 ## Techs
 
 - Turborepo
@@ -114,7 +119,3 @@ npx prisma db seed
 
 4. Run project with `pnpm run dev` in root directory.
 
-## Deploy
-
-[Backend](https://next-saas-rbac-u5fz.onrender.com)
-[Frontend](https://next-saas-rbac-delta.vercel.app/)
