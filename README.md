@@ -4,7 +4,7 @@ This project contains all the necessary boilerplate to setup a multi-tenant SaaS
 
 ## Deploy
 
-[Backend](https://next-saas-rbac-u5fz.onrender.com)
+[Backend](https://next-saas-rbac-u5fz.onrender.com/docs)
 [Frontend](https://next-saas-rbac-delta.vercel.app/)
 
 ## Techs
